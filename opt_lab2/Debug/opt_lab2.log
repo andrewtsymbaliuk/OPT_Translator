@@ -1,0 +1,3 @@
+﻿  CodeGenerator.cpp
+D:\OPT_Translator\opt_lab2\CodeGenerator.cpp(178): warning C4715: CodeGenerator::expression: значение возвращается не при всех путях выполнения
+  opt_lab2.vcxproj -> D:\OPT_Translator\opt_lab2\Debug\opt_lab2.exe

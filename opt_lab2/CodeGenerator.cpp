@@ -17,7 +17,8 @@ void CodeGenerator::init(string File)
 	Label = 0;
 	LabelCounter = 0;
 	N = N->Down->Down->Next->Next->Next->Down->Next;
-	start(N);
+	if(SynAn.ErrorCounter==0)
+		start(N);
 }
 
 void CodeGenerator::start(Node* N)
@@ -79,14 +80,15 @@ void CodeGenerator::condition_statement(Node* N) {
 	if (N->Func=="<incomplete-condition-statement>") {
 		incomplete_statement(N->Down->Next);
 		Label = ifLabel;
-		StrAsm.append("?L" + to_string(Label) + ":\tnop\n");
-		Label++;
-		LabelCounter;
+		elsejmp+="?L" + to_string(Label) + ":\tnop\n";
 		if (N->Next != NULL) {
 			if (N->Next->Func == "<alternative-part>") {
 				N = N->Next->Down;
-				alternative_part(N);
-				StrAsm.append("?L" + to_string(Label) + ":\tnop\n");
+				if (alternative_part(N)) {
+					Label++;
+					LabelCounter;
+					StrAsm.append("?L" + to_string(Label) + ":\tnop\n");
+				}
 			}
 		}
 	}
@@ -116,21 +118,24 @@ void CodeGenerator::incomplete_statement(Node* N) {
 		if (N->Func == "<statements-list>") {
 			statements_list(N->Down);
 			Label = ifLabel;
-			StrAsm.append("\tjmp ?L" + to_string(Label) + "\n");
+			elsejmp="\tjmp ?L" + to_string(Label) + "\n";
 		}
 	}
 }
 
-void CodeGenerator::alternative_part(Node* N)
+bool CodeGenerator::alternative_part(Node* N)
 {
 	int alternativeLabel = Label;
-	if (N->Func == "<empty>") {
-		StrAsm.append("\tnop\n");
-		return;
+	if (N->Func == "<empty>") {	
+		StrAsm.append("?L" + to_string(Label) + ":\tnop\n");
+		elsejmp = "";
+		return 0;
 	}
 	if (N->Next->Func == "<statements-list>") {
+		StrAsm.append(elsejmp);
 		statements_list(N->Next->Down);
 		Label = alternativeLabel;
+		return 1;
 	}
 }
 
@@ -139,22 +144,22 @@ void CodeGenerator::comparison_operator(Node* N)
 	switch (N->Code)
 	{
 	case 60:
-		StrAsm.append("\tjl ?L" + to_string(Label) + "\n");
+		StrAsm.append("\tjge ?L" + to_string(Label) + "\n");
 		return ;
 	case 61:
-		StrAsm.append("\tje ?L" + to_string(Label) + "\n");
-		return ;
-	case 62:
-		StrAsm.append("\tjg ?L" + to_string(Label) + "\n");
-		return ;
-	case 304:
-		StrAsm.append("\tjle ?L" + to_string(Label) + "\n");
-		return ;
-	case 305:
 		StrAsm.append("\tjne ?L" + to_string(Label) + "\n");
 		return ;
+	case 62:
+		StrAsm.append("\tjle ?L" + to_string(Label) + "\n");
+		return ;
+	case 304:
+		StrAsm.append("\tjg ?L" + to_string(Label) + "\n");
+		return ;
+	case 305:
+		StrAsm.append("\tje ?L" + to_string(Label) + "\n");
+		return ;
 	case 306:
-		StrAsm.append("\tjge ?L" + to_string(Label) + "\n");
+		StrAsm.append("\tjl ?L" + to_string(Label) + "\n");
 		return ;
 	}
 }

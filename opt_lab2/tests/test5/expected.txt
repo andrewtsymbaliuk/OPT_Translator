@@ -116,16 +116,13 @@ GHJHB5:
 	mov ax, 7654
 	mov bx, 156
 	cmp ax, bx
-	jle ?L0
+	jg ?L0
 	mov ax, ERTY4
 	mov bx, B156
 	cmp ax, bx
-	je ?L2
+	jne ?L2
 	nop
-	jmp ?L3
 ?L2:	nop
-	nop
-?L3:	nop
 	nop
 	jmp ?L1
 ?L0:	nop
@@ -133,7 +130,7 @@ GHJHB5:
 	mov ax, RTH
 	mov bx, 456
 	cmp ax, bx
-	jg ?L5
+	jle ?L5
 	nop
 	jmp ?L4
 ?L5:	nop

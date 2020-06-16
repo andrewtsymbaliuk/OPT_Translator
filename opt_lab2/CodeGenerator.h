@@ -12,6 +12,7 @@ public:
 	int Label;
 	int LabelCounter;
 	string ProgramName;
+	string elsejmp;
 	void listing(string File);
 	void init(string File);
 	void start(Node* N);
@@ -20,7 +21,7 @@ public:
 	void condition_statement(Node* N);
 	void condition_expression(Node* N);
 	void incomplete_statement(Node* N);
-	void alternative_part(Node* N);
+	bool alternative_part(Node* N);
 	void comparison_operator(Node* N);
 	bool expression(Node* N);
 };

@@ -119,16 +119,16 @@ B671:
 	mov ax, GHJ5
 	mov bx, 15
 	cmp ax, bx
-	je ?L0
+	jne ?L0
 ?L2:
 	mov ax, RTH
 	mov bx, 456
 	cmp ax, bx
-	je ?L3
+	jne ?L3
 	mov ax, KJHG
 	mov bx, 11
 	cmp ax, bx
-	jl ?L4
+	jge ?L4
 	nop
 	jmp ?L5
 ?L4:	nop

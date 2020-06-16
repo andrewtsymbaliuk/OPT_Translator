@@ -6,7 +6,7 @@
    2         1       402                BEGIN
    3         2       404                   IF
    3         5      1002                 FG34
-   3        10       305                   <>
+   3        11        61                   >=
    3        13       501                   45
    3        16       405                 THEN
    4         3       408                WHILE
@@ -16,9 +16,9 @@
    4        18       409                   DO
    5         4       404                   IF
    5         7      1002                 FG34
-   5        12       305                   <>
-   5        15       501                   45
-   5        18       405                 THEN
+   5        12        61                    =
+   5        14       501                   45
+   5        17       405                 THEN
    6         4       406                 ELSE
    7         4       407                ENDIF
    7         9        59                    ;
@@ -26,15 +26,15 @@
    8        11        59                    ;
    9         2       406                 ELSE
   10         3       408                WHILE
-  10         9      1003                  QWE
-  10        13        60                    <
-  10        15       502                   56
-  10        18       409                   DO
+  10         9      1004                 QWE6
+  10        14       305                   <>
+  10        17       503                    6
+  10        19       409                   DO
   11         4       404                   IF
-  11         7      1002                 FG34
-  11        12       305                   <>
-  11        15       501                   45
-  11        18       405                 THEN
+  11         7      1005               EDFG34
+  11        14        62                    >
+  11        16       504                 4555
+  11        21       405                 THEN
   12         4       406                 ELSE
   13         4       407                ENDIF
   13         9        59                    ;
@@ -43,15 +43,15 @@
   15         2       407                ENDIF
   15         7        59                    ;
   16         2       408                WHILE
-  16         8      1003                  QWE
-  16        12        60                    <
-  16        14       502                   56
-  16        17       409                   DO
+  16         8      1006                QWE56
+  16        14       304                   <=
+  16        17       502                   56
+  16        20       409                   DO
   17         3       404                   IF
-  17         6      1002                 FG34
-  17        11       305                   <>
-  17        14       501                   45
-  17        17       405                 THEN
+  17         6      1007               FKJH34
+  17        13       305                   <>
+  17        16       505                    4
+  17        18       405                 THEN
   18         3       406                 ELSE
   19         3       407                ENDIF
   19         8        59                    ;
@@ -81,7 +81,7 @@
                                         <identifier>
                                             1002   FG34
                                 <comparison-operator>
-                                    305   <>
+                                    61   >=
                                 <expression>
                                     <unsigned-integer>
                                         501   45
@@ -111,7 +111,7 @@
                                                                 <identifier>
                                                                     1002   FG34
                                                         <comparison-operator>
-                                                            305   <>
+                                                            61   =
                                                         <expression>
                                                             <unsigned-integer>
                                                                 501   45
@@ -139,12 +139,12 @@
                                         <expression>
                                             <variable-identifier>
                                                 <identifier>
-                                                    1003   QWE
+                                                    1004   QWE6
                                         <comparison-operator>
-                                            60   <
+                                            305   <>
                                         <expression>
                                             <unsigned-integer>
-                                                502   56
+                                                503   6
                                     409   DO
                                     <statements-list>
                                         <statement>
@@ -155,12 +155,12 @@
                                                         <expression>
                                                             <variable-identifier>
                                                                 <identifier>
-                                                                    1002   FG34
+                                                                    1005   EDFG34
                                                         <comparison-operator>
-                                                            305   <>
+                                                            62   >
                                                         <expression>
                                                             <unsigned-integer>
-                                                                501   45
+                                                                504   4555
                                                     405   THEN
                                                     <statements-list>
                                                         <empty>
@@ -185,9 +185,9 @@
                             <expression>
                                 <variable-identifier>
                                     <identifier>
-                                        1003   QWE
+                                        1006   QWE56
                             <comparison-operator>
-                                60   <
+                                304   <=
                             <expression>
                                 <unsigned-integer>
                                     502   56
@@ -201,12 +201,12 @@
                                             <expression>
                                                 <variable-identifier>
                                                     <identifier>
-                                                        1002   FG34
+                                                        1007   FKJH34
                                             <comparison-operator>
                                                 305   <>
                                             <expression>
                                                 <unsigned-integer>
-                                                    501   45
+                                                    505   4
                                         405   THEN
                                         <statements-list>
                                             <empty>
@@ -238,7 +238,7 @@ TEST1:
 	mov ax, QWE
 	mov bx, 56
 	cmp ax, bx
-	jl ?L3
+	jge ?L3
 	mov ax, FG34
 	mov bx, 45
 	cmp ax, bx
@@ -255,14 +255,14 @@ TEST1:
 	jmp ?L1
 ?L0:	nop
 ?L6:
-	mov ax, QWE
-	mov bx, 56
+	mov ax, QWE6
+	mov bx, 6
 	cmp ax, bx
-	jl ?L7
-	mov ax, FG34
-	mov bx, 45
+	je ?L7
+	mov ax, EDFG34
+	mov bx, 4555
 	cmp ax, bx
-	jne ?L8
+	jle ?L8
 	nop
 	jmp ?L9
 ?L8:	nop
@@ -274,14 +274,14 @@ TEST1:
 	nop
 ?L1:	nop
 ?L10:
-	mov ax, QWE
+	mov ax, QWE56
 	mov bx, 56
 	cmp ax, bx
-	jl ?L11
-	mov ax, FG34
-	mov bx, 45
+	jg ?L11
+	mov ax, FKJH34
+	mov bx, 4
 	cmp ax, bx
-	jne ?L12
+	je ?L12
 	nop
 	jmp ?L13
 ?L12:	nop

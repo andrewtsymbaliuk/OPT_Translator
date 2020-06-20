@@ -16,6 +16,8 @@ void CodeGenerator::init(string File)
 	StrError = "";
 	Label = 0;
 	LabelCounter = 0;
+	check1 = 0;
+	check2 = 0;
 	N = N->Down->Down->Next->Next->Next->Down->Next;
 	if(SynAn.ErrorCounter==0)
 		start(N);
@@ -99,10 +101,16 @@ void CodeGenerator::condition_expression(Node* N)
 	if (N->Func == "<expression>") {
 		StrAsm.append("\tmov ax, ");
 		expression(N->Down);
+		check1 = check2;
 		StrAsm.append("\tmov bx, ");
 		expression(N->Next->Next->Down);
 		StrAsm.append("\tcmp ax, bx\n");
 		comparison_operator(N->Next->Down);
+		if (check1 != check2) {
+			Error++;
+			StrError.append("Code Generator: Error do not compare the identifier with the digit\n");
+			return;
+		}
 	}
 }
 
@@ -168,16 +176,20 @@ bool CodeGenerator::expression(Node* N)
 {
 	if (N->Func=="<unsigned-integer>") {
 		StrAsm.append(N->Down->Name + "\n");
+		check2 = 0;
 		return true;
 	}
 	else if (N->Down->Func=="<identifier>") {
 		N = N->Down->Down;
 		if (N->Name==ProgramName) {
 			Error++;
-			StrError.append("Code Generator: Error on Line " + to_string(N->Line) + ", Column " + to_string(N->Column) + ": Invalid identifier, don`t use name program");
+			StrError.append("Code Generator: Error on Line " + to_string(N->Line) + ", Column " + to_string(N->Column) + ": Invalid identifier, don`t use name program\n");
+			check2 = 1;
+			return false;
 		}
 		else {
 			StrAsm.append(N->Name + "\n");
+			check2 = 1;
 		}
 	}
 }

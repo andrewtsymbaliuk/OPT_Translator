@@ -155,10 +155,16 @@ void LeksAnaliz::SPACE()
 				Line++;
 				Column = 1;
 			}
+			else if (sbuff == 9) {
+				Column+=4;
+				sbuff = t.get();
+
+			}
 			else {
 				Pos++; Column++;
 				sbuff = t.get();
 			}
+			
 		}
 		return;
 	}
@@ -308,7 +314,7 @@ void LeksAnaliz::MDM()
 		if ((SizeOut()) && Buf == ">" && sbuff == '=')
 		{
 			Buf += sbuff;
-			AddLeksem(sbuff, Line, Column, Buf);
+			AddLeksem(306, Line, Column, Buf);
 			Pos++;
 			sbuff = t.get();
 			Column++;

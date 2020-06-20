@@ -1,4 +1,9 @@
-﻿  CodeGenerator.cpp
-D:\OPT_Translator\opt_lab2\CodeGenerator.cpp(140): warning C4715: CodeGenerator::alternative_part: значение возвращается не при всех путях выполнения
-D:\OPT_Translator\opt_lab2\CodeGenerator.cpp(183): warning C4715: CodeGenerator::expression: значение возвращается не при всех путях выполнения
+﻿  LexAnaliz.cpp
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(418,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(428,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(438,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(448,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(462,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(470,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\OPT_Translator\opt_lab2\LexAnaliz.cpp(486,21): warning C4018: <: несоответствие типов со знаком и без знака
   opt_lab2.vcxproj -> D:\OPT_Translator\opt_lab2\Debug\opt_lab2.exe

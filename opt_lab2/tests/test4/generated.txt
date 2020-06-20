@@ -1,0 +1,118 @@
+  Line    Column    Code                Name
+
+   1         1       401              PROGRAM
+   1         9      1001                 B671
+   1        13        59                    ;
+   2         1       402                BEGIN
+   3         5       404                   IF
+   3         8      1002                 GHJ5
+   3        14       306                   >=
+   3        16       501                   15
+   3        19       405                 THEN
+   4         9       408                WHILE
+   4        15      1003                  RTH
+   4        18        61                    =
+   4        20       502                  456
+   4        24       409                   DO
+   5        13       404                   IF
+   5        16      1004                 KJHG
+   5        21        60                    <
+   5        23       503                   11
+   5        26       405                 THEN
+   6        13       406                 ELSE
+   7        13       407                ENDIF
+   7        18        59                    ;
+   8         9       410             ENDWHILE
+   8        17        59                    ;
+   9         5       406                 ELSE
+  10         5       407                ENDIF
+  10        10        59                    ;
+  11         1       403                  END
+  11         4        46                    .
+
+
+<signal-program>
+    <program>
+        401   PROGRAM
+        <procedure-identifier>
+            <identifier>
+                1001   B671
+        59   ;
+        <block>
+            402   BEGIN
+            <statements-list>
+                <statement>
+                    <condition-statement>
+                        <incomplete-condition-statement>
+                            404   IF
+                            <conditional-expression>
+                                <expression>
+                                    <variable-identifier>
+                                        <identifier>
+                                            1002   GHJ5
+                                <comparison-operator>
+                                    306   >=
+                                <expression>
+                                    <unsigned-integer>
+                                        501   15
+                            405   THEN
+                            <statements-list>
+                                <statement>
+                                    408   WHILE
+                                    <conditional-expression>
+                                        <expression>
+                                            <variable-identifier>
+                                                <identifier>
+                                                    1003   RTH
+                                        <comparison-operator>
+                                            61   =
+                                        <expression>
+                                            <unsigned-integer>
+                                                502   456
+                                    409   DO
+                                    <statements-list>
+                                        <statement>
+                                            <condition-statement>
+                                                <incomplete-condition-statement>
+                                                    404   IF
+                                                    <conditional-expression>
+                                                        <expression>
+                                                            <variable-identifier>
+                                                                <identifier>
+                                                                    1004   KJHG
+                                                        <comparison-operator>
+                                                            60   <
+                                                        <expression>
+                                                            <unsigned-integer>
+                                                                503   11
+                                                    405   THEN
+                                                    <statements-list>
+                                                        <empty>
+                                                <alternative-part>
+                                                    406   ELSE
+                                                    <statements-list>
+                                                        <empty>
+                                            407   ENDIF
+                                            59   ;
+                                        <statements-list>
+                                            <empty>
+                                    410   ENDWHILE
+                                    59   ;
+                                <statements-list>
+                                    <empty>
+                        <alternative-part>
+                            406   ELSE
+                            <statements-list>
+                                <empty>
+                    407   ENDIF
+                    59   ;
+                <statements-list>
+                    <empty>
+            403   END
+        46   .
+
+Code Generator completed with error
+Code Generator: Error do not compare the identifier with the digit
+Code Generator: Error do not compare the identifier with the digit
+Code Generator: Error do not compare the identifier with the digit
+

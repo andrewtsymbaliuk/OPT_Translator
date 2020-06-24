@@ -1,2 +1,0 @@
-D:\OPT_Translator\opt_lab2\Debug\opt_lab2.exe
-D:\OPT_Translator\opt_lab2\Debug\opt_lab2.pdb
